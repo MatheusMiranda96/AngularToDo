@@ -22,6 +22,18 @@ export class TodoComponent implements OnInit {
       })
   }
 
+  addTask (){
+      this.tasks.push({
+      description: this.todoForm.value.item,
+      done: false
+      })
+  }
+
+  deleteTask(i: number){
+    this.tasks.splice(i,1)
+  }
+
+  
   drop(event: CdkDragDrop<ITask[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
