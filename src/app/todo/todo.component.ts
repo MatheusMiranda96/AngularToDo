@@ -9,6 +9,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 export class TodoComponent implements OnInit {
 
   todoForm !: FormGroup;
+  tasks : any [] = [];
+  inprogress : any [] = [];
+  done : any [] = [];
   constructor(private fb : FormBuilder) { }
 
   ngOnInit(): void {
