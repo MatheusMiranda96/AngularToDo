@@ -10,13 +10,59 @@
                             <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                             <mat-hint>Adicionar Tarefa</mat-hint>
                           </mat-form-field>
-                          <button mat-raised-button color="primary">Add</button>
+                          <button mat-raised-button [disabled]="todoForm.invalid" color="primary">Add</button>
                     </form>
                 </mat-card>
             </div>
         </div>
         <div class="col-md-9">
+            <div cdkDropListGroup>
+                <div class="row">
 
+                    <div class="col-md-4">
+                        <!-- Tarefas -->
+                        <div class="example-container">
+                            <h2>Tarefas</h2>
+                            <div
+                              cdkDropList
+                              [cdkDropListData]="tasks"
+                              class="example-list"
+                              (cdkDropListDropped)="drop($event)">
+                              <div class="example-box" *ngFor="let item of tasks" cdkDrag>{{item}}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <!-- Em progresso -->
+                        <div class="example-container">
+                            <h2>Em andamento</h2>
+                            <div
+                              cdkDropList
+                              [cdkDropListData]="tasks"
+                              class="example-list"
+                              (cdkDropListDropped)="drop($event)">
+                              <div class="example-box" *ngFor="let item of tasks" cdkDrag>{{item}}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <!-- Concluida -->
+                        <div class="example-container">
+                            <h2>Concluída</h2>
+                            <div
+                              cdkDropList
+                              [cdkDropListData]="tasks"
+                              class="example-list"
+                              (cdkDropListDropped)="drop($event)">
+                              <div class="example-box" *ngFor="let item of tasks" cdkDrag>{{item}}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>                   
+            </div>                 
         </div>
     </div>
 </div>

@@ -7,6 +7,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -33,7 +35,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]
