@@ -45,7 +45,9 @@
                               [cdkDropListData]="inprogress"
                               class="example-list"
                               (cdkDropListDropped)="drop($event)">
-                              <div class="example-box" *ngFor="let item of inprogress" cdkDrag>{{item.description}}</div>
+                              <div class="example-box" *ngFor="let item of inprogress;let i = index" cdkDrag>{{item.description}}
+                                <button mat-icon-button color="warn" (click)="deleteInProgressTask(i)" ><mat-icon>delete</mat-icon></button>
+                              </div>
                             </div>
                         </div>
                     </div>
