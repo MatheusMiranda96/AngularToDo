@@ -6,7 +6,7 @@
                     <form [formGroup]="todoForm">
                         <mat-form-field appearance="outline">
                             <mat-label>Nome da Tarefa</mat-label>
-                            <input formControlName="item" matInput placeholder="Placeholder">
+                            <input formControlName="item" matInput placeholder="Ex: Reunião...">
                             <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                             <mat-hint>Adicionar Tarefa</mat-hint>
                           </mat-form-field>
@@ -16,17 +16,14 @@
                 </mat-card>
             </div>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-9 mt-3">
             <div cdkDropListGroup>
                 <div class="row">
-
                     <div class="col-md-4">
                         <!-- Tarefas -->
                         <div class="example-container">
-                            <h2>Tarefas</h2>
-                            <div
-                              cdkDropList
-                              [cdkDropListData]="tasks" class="example-list" (cdkDropListDropped)="drop($event)">
+                            <h2 class="head-title">Tarefas <span *ngIf="tasks.length > 0"> - {{tasks.length}} </span> </h2>
+                            <div cdkDropList [cdkDropListData]="tasks" class="example-list" (cdkDropListDropped)="drop($event)">
                               <div class="example-box" *ngFor="let item of tasks; let i = index " cdkDrag>{{item.description}}
                                 <div class="box">
                                     <button mat-icon-button color="warn" (click)="deleteTask(i)" ><mat-icon>delete</mat-icon></button>
@@ -40,12 +37,8 @@
                     <div class="col-md-4">
                         <!-- Em progresso -->
                         <div class="example-container">
-                            <h2>Em andamento</h2>
-                            <div
-                              cdkDropList
-                              [cdkDropListData]="inprogress"
-                              class="example-list"
-                              (cdkDropListDropped)="drop($event)">
+                            <h2 class="head-title">Em andamento <span *ngIf="inprogress.length > 0"> - {{inprogress.length}} </span></h2>
+                            <div cdkDropList [cdkDropListData]="inprogress" class="example-list" (cdkDropListDropped)="drop($event)">
                               <div class="example-box" *ngFor="let item of inprogress;let i = index" cdkDrag>{{item.description}}
                                 <div class="box">
                                     <button mat-icon-button color="warn" (click)="deleteInProgressTask(i)" ><mat-icon>delete</mat-icon></button>
@@ -58,22 +51,18 @@
                     <div class="col-md-4">
                         <!-- Concluida -->
                         <div class="example-container">
-                            <h2>Concluída</h2>
+                            <h2 class="head-title">Concluída <span *ngIf="done.length > 0"> - {{done.length}} </span></h2>
                             <div
-                              cdkDropList
-                              [cdkDropListData]="done"
-                              class="example-list"
-                              (cdkDropListDropped)="drop($event)">
+                              cdkDropList [cdkDropListData]="done" class="example-list" (cdkDropListDropped)="drop($event)">
                               <div class="example-box" *ngFor="let item of done;let i = index" cdkDrag>{{item.description}}
                                 <div class="box">
                                     <button mat-icon-button color="warn" (click)="deleteDone(i)" ><mat-icon>delete</mat-icon></button>
-                                    <button mat-icon-button color="primary"><mat-icon>check_circle</mat-icon></button>
+                                    <button mat-icon-button color="accent"><mat-icon>check_circle</mat-icon></button>
                                 </div>
                               </div>
                             </div>
                         </div>
                     </div>
-
                 </div>                   
             </div>                 
         </div>
